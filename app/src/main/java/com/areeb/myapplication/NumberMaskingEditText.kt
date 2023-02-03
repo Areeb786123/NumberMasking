@@ -6,6 +6,12 @@ import android.util.AttributeSet
 class NumberMaskingEditText : androidx.appcompat.widget.AppCompatEditText {
     private var previousLength: Int = 0
 
+    companion object {
+        private const val ZERO = 0
+        private const val FOUR = 4
+        private const val NINE = 9
+    }
+
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -25,20 +31,20 @@ class NumberMaskingEditText : androidx.appcompat.widget.AppCompatEditText {
         super.onTextChanged(text, start, lengthBefore, lengthAfter)
 
         if (text == null || text.length < previousLength) {
-            previousLength = text?.length ?: 0
+            previousLength = text?.length ?: ZERO
             return
         }
 
         val maskedNumber = StringBuilder()
-        var i = 0
+        var i = ZERO
         while (i < text.length) {
             val char = text[i]
             if (char.isDigit()) {
-                if (maskedNumber.length == 0) {
+                if (maskedNumber.length == ZERO) {
                     maskedNumber.append("(")
-                } else if (maskedNumber.length == 4) {
+                } else if (maskedNumber.length == FOUR) {
                     maskedNumber.append(") ")
-                } else if (maskedNumber.length == 9) {
+                } else if (maskedNumber.length == NINE) {
                     maskedNumber.append("-")
                 }
                 maskedNumber.append(char)
