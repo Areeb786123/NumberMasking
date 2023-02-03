@@ -8,13 +8,44 @@
 
 
     <com.areeb.myapplication.NumberMaskingEditText
+        android:id="@+id/numberMasking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
 
         />
+
+    <TextView
+        android:id="@+id/maskedNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/numberMasking" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/maskedNumber"
+
+        />
+    <TextView
+        android:id="@+id/saveNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
