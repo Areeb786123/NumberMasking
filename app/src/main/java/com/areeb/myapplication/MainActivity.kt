@@ -3,6 +3,7 @@ package com.areeb.myapplication
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -38,7 +39,11 @@ class MainActivity : AppCompatActivity() {
         })
 
         btn.setOnClickListener {
-            saveNumber.text = numberMasking.text.toString()
+            saveNumber.text = getNormalNumber(maskedNumber.text.toString())
         }
+    }
+
+    fun getNormalNumber(maskedNumber: String): String {
+        return maskedNumber.filter { it.isDigit() }
     }
 }
